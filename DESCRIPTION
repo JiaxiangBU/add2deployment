@@ -1,11 +1,12 @@
 Package: add2deployment
 Type: Package
-Title: What the Package Does (Title Case)
+Title: R functions for translating R to SQL for deployment.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Jiaxiang", "", "Li", role = c("aut", "cre"), email = "alex.lijiaxiang@foxmail.com")
+Maintainer: Jiaxiang Li <alex.lijiaxiang@foxmail.com>
+Description: Provide the functions to translate R output into SQL for deployment.
+License: MIT + file LICENSE
+URL: https://github.com/JiaxiangBU/add2deployment
+BugReports: https://github.com/JiaxiangBU/add2deployment/issues
 Encoding: UTF-8
-LazyData: true
+LazyData: TRUE

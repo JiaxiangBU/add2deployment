@@ -1,0 +1,67 @@
+---
+title: tranlate PCA model in SQL
+---
+
+```{r}
+library(tidyverse)
+set.seed(123)
+sample_data <- 
+cbind(
+    matrix(
+        c(
+            1:100
+        )
+        ,nrow = 10
+        ,byrow = F
+    )
+    ,matrix(
+        c(
+            letters[1:20]
+        )
+        ,nrow = 10
+        ,byrow = T
+    )
+    ,matrix(
+        c(
+            rep(0:1,5)
+        )
+        ,nrow = 10
+        ,byrow = T
+    )
+) %>% 
+    `colnames<-`(paste0('v',1:13)) %>% 
+    `rownames<-`(1:10) %>% 
+    as.data.frame() %>% 
+    mutate_at(vars(1:10,13),as.integer) %>% 
+    mutate_at(vars(1:10),~cut_number(.,3))
+sample_data
+library(caret)
+sample_data_after_onehot <- 
+    sample_data %>% 
+    predict(dummyVars(~.,data=.),newdata =.) %>%
+    as.data.frame()
+sample_data_after_onehot
+library(irlba)
+pca_score <- prcomp_irlba(sample_data_after_onehot,n=2,center = T,scale. = F)
+```
+
+1. `sample_data` is discretized for all continuous variable by `cut_number`. 
+1. Here I use `prcomp_irlba` instead of `prcomp` partly because `prcomp` is hard to train big data.
+1. `dummyVars` function I use is to one-hot encoding the category variables.
+
+```{r}
+r_output <- 
+    pca_score$rotation %>% 
+    `rownames<-`(sample_data_after_onehot %>% names) %>% 
+    as.data.frame() %>% 
+    rownames_to_column('variable')
+r_output
+```
+
+`r_output` is what I get when I finish the pca model.
+
+Now, we recode it in SQL style.
+
+```{r}
+trans_inSQL(input=r_output)
+```
