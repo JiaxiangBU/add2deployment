@@ -6,10 +6,14 @@ In the early phase of modeling, the user data is not large, thus the modelers ch
 
 I do such sort of things a lot and think build some defined functions to reduce the translating time (from R code to SQL-like code).
 
-There are three kind of variables
+Friendly install `add2deployment` by 
 
-1. factor variable
-1. continous variable
-1. binary variable
-: data type is `dbl` in `data.frame` but there are only two distinct value (like 1,0).
+```
+devtools::install_github('JiaxiangBU/add2deployment')
+```
 
+After successfully installation of `add2deployment`, just library it!
+
+```
+library(add2deployment)
+```
