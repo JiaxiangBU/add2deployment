@@ -2,6 +2,7 @@
 
 
   [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+  [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/JiaxiangBU/add2deployment/master)
 
 
 R functions for translating R to SQL for deployment.
