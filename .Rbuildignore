@@ -1,3 +1,5 @@
+^LICENSE\.md$
+^README\.Rmd$
 ^packrat/
 ^\.Rprofile$
 ^.*\.Rproj$
