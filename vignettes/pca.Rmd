@@ -1,6 +1,24 @@
 ---
-title: tranlate PCA model in SQL
+title: "tranlate PCA model from R to SQL"
+author: "Jiaxiang Li"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
 
 There are three kind of variables
 
@@ -72,5 +90,6 @@ r_output
 Now, we recode it in SQL style.
 
 ```{r}
+library(add2deployment)
 trans_inSQL(input=r_output)
 ```
